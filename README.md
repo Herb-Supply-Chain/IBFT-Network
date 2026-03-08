@@ -40,7 +40,7 @@ besu --version
 ## Step-2
 #### Clone this repo
 ```
-git@github.com:Herb-Supply-Chain/IBFT-Network.git
+git clone git@github.com:Herb-Supply-Chain/IBFT-Network.git
 ```
 
 ```
@@ -55,7 +55,7 @@ besu operator generate-blockchain-config --config-file=ibftConfigFile.json --to=
 ```
 
 ## Step-3 
-#### Move the four keys folders with key and key.sub files in the Node-1/data, Node-2/data, Node-3/data, Node-4/data respectively
+Move the four keys folders with key and key.sub files in the **Node-1/data**, **Node-2/data**, **Node-3/data**, **Node-4/data** respectively
 
 ```
 networkFiles/
@@ -98,7 +98,7 @@ IBFT-Network/
 ```
 
 ## Step-4
-#### Copy the genesis.json in the IBFT-Network directory as shown above in the folder tree
+Copy the **genesis.json** to the **IBFT-Network** directory as shown above in the folder tree
 
 
 ## Step-5
@@ -141,12 +141,12 @@ besu --data-path=data \
 --bootnodes=
 ```
 
-#### **--bootnode** value is the **enode url** present in the logs of Node-1
-### See the highlighted text in picture for the reference
+**--bootnode** value is the **enode url** present in the logs of Node-1
+See the highlighted text in picture for the reference
 
 <img width="1919" height="1014" alt="image" src="https://github.com/user-attachments/assets/fa3aa9b7-6775-41c7-8635-db50c0bdc41f" />
 
-### Paste the bootnode to from Node-1 to Node-2's **--bootnodes** flag
+Paste the bootnode to from Node-1 to Node-2's **--bootnodes** flag
 <img width="1919" height="1019" alt="image" src="https://github.com/user-attachments/assets/abd56077-a41b-4879-8bad-2d7bac7f2440" />
 
 ## Step-8
@@ -165,7 +165,7 @@ besu --data-path=data \
 --profile=ENTERPRISE \
 --bootnodes=
 ```
-#### again the Node-1 enode url will be pasted at **--bootnodes** flag 
+again the Node-1 enode url will be pasted at **--bootnodes** flag 
 <img width="1919" height="1022" alt="image" src="https://github.com/user-attachments/assets/e17df2da-c37a-4859-be1f-d84e6bf9e33b" />
 
 ## Step-9
@@ -192,9 +192,9 @@ besu --data-path=data \
 <img width="1914" height="1011" alt="image" src="https://github.com/user-attachments/assets/c7de9921-4937-471b-8c7f-d6d45d3408cf" />
 
 
-#### Now you can use **Hardhat**, **Foundry** or Remix to deploy the Smart Contracts
-#### You have 4 RPC URL for the 4 nodes. Use any one of the RPC URL to Deploy Smart Contract, send transactions and read the events on chain
+Now you can use **Hardhat**, **Foundry** or Remix to deploy the Smart Contracts
+You have 4 RPC URL for the 4 nodes. Use any one of the RPC URL to Deploy Smart Contract, send transactions and read the events on chain
 
-#### More Nodes can be added just you have to change the **--p2p-port** and **--rpc-http-port** to the next serials
+More Nodes can be added just you have to change the **--p2p-port** and **--rpc-http-port** to the next serials
 
 #### For more information refer - https://besu.hyperledger.org/private-networks/tutorials/ibft
