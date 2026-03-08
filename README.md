@@ -1,18 +1,114 @@
 # For IBFT2.0
 ## (Note: The steps given below are for the private gasless transaction)
 
-## Step-0
-#### Install Besu
-https://besu.hyperledger.org/private-networks/get-started/install
-
 ## Step-1
+#### Install Besu(Ubuntu)
+
+Check the Java Version
+```
+java --version
+```
+
+Java version must be 21+. If not update that
+
+#### Besu Installation latest version - https://github.com/hyperledger/besu/releases 
+
+```
+wget https://github.com/hyperledger/besu/releases/download/26.2.0/besu-26.2.0-bin.tar.gz
+```
+
+#### Extract
+```
+tar xvf besu-*-bin.tar.gz
+```
+
+#### Add to PATH
+```
+echo 'export PATH="$HOME/besu/bin:$PATH"' >> ~/.bashrc
+```
+
+```
+source ~/.bashrc
+```
+
+#### Run
+```
+besu --help
+besu --version
+```
+
+## Step-2
+#### Clone this repo
+```
+git@github.com:Herb-Supply-Chain/IBFT-Network.git
+```
+
+```
+cd IBFT-Network
+```
+
+## Step-2
+#### Generate node keys and a genesis file
+
+```
+besu operator generate-blockchain-config --config-file=ibftConfigFile.json --to=networkFiles --private-key-file-name=key
+```
+
+## Step-3 
+#### Move the four keys folders with key and key.sub files in the Node-1/data, Node-2/data, Node-3/data, Node-4/data respectively
+
+```
+networkFiles/
+├── genesis.json
+└── keys
+    ├── 0x438821c42b812fecdcea7fe8235806a412712fc0
+    │   ├── key
+    │   └── key.pub
+    ├── 0xca9c2dfa62f4589827c0dd7dcf48259aa29f22f5
+    │   ├── key
+    │   └── key.pub
+    ├── 0xcd5629bd37155608a0c9b28c4fd19310d53b3184
+    │   ├── key
+    │   └── key.pub
+    └── 0xe96825c5ab8d145b9eeca1aba7ea3695e034911a
+        ├── key
+        └── key.pub
+```
+
+
+```
+IBFT-Network/
+├── genesis.json
+├── Node-1
+│   ├── data
+│   │    ├── key
+│   │    ├── key.pub
+├── Node-2
+│   ├── data
+│   │    ├── key
+│   │    ├── key.pub
+├── Node-3
+│   ├── data
+│   │    ├── key
+│   │    ├── key.pub
+├── Node-4
+│   ├── data
+│   │    ├── key
+│   │    ├── key.pub
+```
+
+## Step-4
+#### Copy the genesis.json in the IBFT-Network directory as shown above in the folder tree
+
+
+## Step-5
 #### Open atleast 4 terminal instance of Ubuntu or WSL
 #### Each terminal will act as one independent node
 <img width="1914" height="1017" alt="image" src="https://github.com/user-attachments/assets/1b805652-7010-4fe4-bf7b-43e7e1d49907" />
 
 #### Change the directory where this repository is cloned
 
-## Step-2
+## Step-6
 #### Run these command to each terminal stated properly
 ### Terminal 1
 ```
@@ -28,7 +124,7 @@ besu --data-path=data \
 ```
 <img width="1907" height="1021" alt="image" src="https://github.com/user-attachments/assets/3d65ae33-db82-44e7-a65d-534a1ac8d36b" />
 
-## Step-3
+## Step-7
 ### Terminal 2
 ```
 besu --data-path=data \
@@ -53,7 +149,7 @@ besu --data-path=data \
 ### Paste the bootnode to from Node-1 to Node-2's **--bootnodes** flag
 <img width="1919" height="1019" alt="image" src="https://github.com/user-attachments/assets/abd56077-a41b-4879-8bad-2d7bac7f2440" />
 
-## Step-4
+## Step-8
 ### Terminal 3
 ```
 besu --data-path=data \
@@ -72,7 +168,7 @@ besu --data-path=data \
 #### again the Node-1 enode url will be pasted at **--bootnodes** flag 
 <img width="1919" height="1022" alt="image" src="https://github.com/user-attachments/assets/e17df2da-c37a-4859-be1f-d84e6bf9e33b" />
 
-## Step-5
+## Step-9
 ### Terminal 4
 ```  
 besu --data-path=data \
@@ -98,5 +194,7 @@ besu --data-path=data \
 
 #### Now you can use **Hardhat**, **Foundry** or Remix to deploy the Smart Contracts
 #### You have 4 RPC URL for the 4 nodes. Use any one of the RPC URL to Deploy Smart Contract, send transactions and read the events on chain
+
+#### More Nodes can be added just you have to change the **--p2p-port** and **--rpc-http-port** to the next serials
 
 #### For more information refer - https://besu.hyperledger.org/private-networks/tutorials/ibft
