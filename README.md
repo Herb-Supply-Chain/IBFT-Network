@@ -96,5 +96,7 @@ besu --data-path=data \
 <img width="1914" height="1011" alt="image" src="https://github.com/user-attachments/assets/c7de9921-4937-471b-8c7f-d6d45d3408cf" />
 
 
-### Now you can use **Hardhat**, **Foundry** or Remix to deploy the Smart Contracts
-### You have 4 RPC URL for the 4 nodes. Use any one of the RPC URL to Deploy Smart Contract, send transactions and read the events on chain
+#### Now you can use **Hardhat**, **Foundry** or Remix to deploy the Smart Contracts
+#### You have 4 RPC URL for the 4 nodes. Use any one of the RPC URL to Deploy Smart Contract, send transactions and read the events on chain
+
+#### For more information refer - https://besu.hyperledger.org/private-networks/tutorials/ibft
